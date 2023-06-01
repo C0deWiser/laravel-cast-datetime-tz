@@ -19,7 +19,7 @@ $model = new Article();
 
 $model->date = '2000-01-01T10:00:00+02:00';
 
-echo $model->date;
+echo $model->date->format('c');
 // Expecting 2000-01-01T09:00:00+01:00
 // Actual    2000-01-01T10:00:00+01:00
 ```
@@ -43,7 +43,7 @@ $model = new Article();
 
 $model->date = '2000-01-01T10:00:00+02:00';
 
-echo $model->date;
+echo $model->date->format('c');
 // Expecting 2000-01-01T09:00:00+01:00
 // Actual    2000-01-01T09:00:00+01:00
 ```
