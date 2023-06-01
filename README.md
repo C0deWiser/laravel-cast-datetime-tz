@@ -1,6 +1,10 @@
 # Cast datetime with timezone for Laravel
 
-Laravel doesn't respect timezone. 
+[![PHP Composer](https://github.com/C0deWiser/laravel-cast-datetime-tz/actions/workflows/php.yml/badge.svg)](https://github.com/C0deWiser/laravel-cast-datetime-tz/actions/workflows/php.yml)
+
+Laravel doesn't respect timezone. Cast `\Codewiser\Casts\AsDatetimeWithTZ` fixes this wrong behaviour.
+
+## Before
 
 ```php
 class Article extends \Illuminate\Database\Eloquent\Model
@@ -24,7 +28,7 @@ echo $model->date->format('c');
 // Actual    2000-01-01T10:00:00+01:00
 ```
 
-Cast `\Codewiser\Casts\AsDatetimeWithTZ` fixes this wrong behaviour.
+## After
 
 ```php
 class Article extends \Illuminate\Database\Eloquent\Model
