@@ -1,0 +1,30 @@
+{
+    "name": "codewiser/laravel-cast-datetime-tz",
+    "description": "Cast datetime with timezone for Laravel",
+    "keywords": ["laravel", "datetime", "tz", "timezone"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cellard",
+            "email": "pm@101media.ru"
+        }
+    ],
+    "require": {
+        "php": "^8.0.2",
+        "laravel/framework": ">=9.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codewiser\\Casts\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
