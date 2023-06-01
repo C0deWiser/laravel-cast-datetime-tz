@@ -13,7 +13,7 @@ class DatetimeTest extends TestCase
 
         $datetime = '2023-05-12T15:00:00';
         $ent->tested_at = $datetime;
-        $this->assertTrue($ent->tested_at->eq(Carbon::parse($datetime)));
+        $this->assertEquals(Carbon::parse($datetime), $ent->tested_at);
     }
 
     public function testStringWithZ()
@@ -22,7 +22,7 @@ class DatetimeTest extends TestCase
 
         $datetime = '2023-05-12T15:00:00Z';
         $ent->tested_at = $datetime;
-        $this->assertTrue($ent->tested_at->eq(Carbon::parse($datetime)));
+        $this->assertEquals(Carbon::parse($datetime), $ent->tested_at);
     }
 
     public function testStringWithTZ()
@@ -31,33 +31,60 @@ class DatetimeTest extends TestCase
 
         $datetime = '2023-05-12T15:00:00+07:00';
         $ent->tested_at = $datetime;
-        $this->assertTrue($ent->tested_at->eq(Carbon::parse($datetime)));
+        $this->assertEquals(Carbon::parse($datetime), $ent->tested_at);
+    }
+
+    public function testCarbonWithoutTZ()
+    {
+        $ent = new Entity();
+
+        $datetime = Carbon::parse('2023-05-12T15:00:00');
+        $ent->tested_at = $datetime;
+        $this->assertEquals($datetime, $ent->tested_at);
+    }
+
+    public function testCarbonWithZ()
+    {
+        $ent = new Entity();
+
+        $datetime = Carbon::parse('2023-05-12T15:00:00Z');
+        $ent->tested_at = $datetime;
+        $this->assertEquals($datetime, $ent->tested_at);
+    }
+
+    public function testCarbonWithTZ()
+    {
+        $ent = new Entity();
+
+        $datetime = Carbon::parse('2023-05-12T15:00:00+07:00');
+        $ent->tested_at = $datetime;
+        $this->assertEquals($datetime, $ent->tested_at);
     }
 
     public function testDatetimeWithoutTZ()
     {
         $ent = new Entity();
 
-        $datetime = Carbon::parse('2023-05-12T15:00:00');
+        $datetime = new \DateTime('2023-05-12T15:00:00');
         $ent->tested_at = $datetime;
-        $this->assertTrue($ent->tested_at->eq($datetime));
+        $this->assertEquals($datetime, $ent->tested_at);
     }
 
     public function testDatetimeWithZ()
     {
         $ent = new Entity();
 
-        $datetime = Carbon::parse('2023-05-12T15:00:00Z');
+        $datetime = new \DateTime('2023-05-12T15:00:00Z');
         $ent->tested_at = $datetime;
-        $this->assertTrue($ent->tested_at->eq($datetime));
+        $this->assertEquals($datetime, $ent->tested_at);
     }
 
     public function testDatetimeWithTZ()
     {
         $ent = new Entity();
 
-        $datetime = Carbon::parse('2023-05-12T15:00:00+07:00');
+        $datetime = new \DateTime('2023-05-12T15:00:00+07:00');
         $ent->tested_at = $datetime;
-        $this->assertTrue($ent->tested_at->eq($datetime));
+        $this->assertEquals($datetime, $ent->tested_at);
     }
 }
