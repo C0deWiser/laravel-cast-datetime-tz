@@ -8,12 +8,12 @@ use Illuminate\Support\Carbon;
 
 class AsDatetimeWithTZ implements CastsAttributes
 {
-    protected function appTimezone(): string
+    protected function appTimezone(): \DateTimeZone
     {
         try {
-            return config('app.timezone', 'UTC');
+            return new \DateTimeZone(config('app.timezone', 'UTC'));
         } catch (\Exception) {
-            return 'UTC';
+            return new \DateTimeZone('UTC');
         }
     }
 
